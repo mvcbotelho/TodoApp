@@ -1,19 +1,4 @@
-const INITIAL_STATE = {
-  description: ' ',
-  list: [{
-    _id: 0,
-    description: 'Ver aula do Curso React + Redux',
-    done: true
-  }, {
-    _id: 1,
-    description: 'Terminar módulo 1 do curso GoNative',
-    done: false
-  }, {
-    _id: 2,
-    description: 'Terminar módulo três do ReactJS do DevPleno',
-    done: false
-  }]
-}
+const INITIAL_STATE = { description: '', list: [] }
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
@@ -21,6 +6,8 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, description: action.payload }
     case 'TODO_SEARCHED':
       return { ...state, list: action.payload.data }
+    case 'TODO_ADDED':
+      return { ...state, description: '' }
     default:
       return state
   }
