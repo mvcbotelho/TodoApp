@@ -1,5 +1,5 @@
 const INITIAL_STATE = {
-  description: 'Estudar React',
+  description: ' ',
   list: [{
     _id: 0,
     description: 'Ver aula do Curso React + Redux',
@@ -19,6 +19,8 @@ export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case 'DESCRIPTION_CHANGE':
       return { ...state, description: action.payload }
+    case 'TODO_SEARCHED':
+      return { ...state, list: action.payload.data }
     default:
       return state
   }
